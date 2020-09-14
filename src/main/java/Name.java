@@ -5,15 +5,15 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name="HelloWorldServlet", urlPatterns = "/hello")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet(name="Name", urlPatterns = "/name")
+public class Name extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        String name = req.getParameter("name");
+        String name = req.getParameter("firstAndLastName");
         if (name == null){
-            name = "codeup";
+            name = "Charles Brant-Stec";
         }
-        out.println("<h1>Hello, "+ name + "!</h1>");
+        out.println("<h1>" +name+"</h1>");
     }
 }
