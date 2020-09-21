@@ -8,12 +8,15 @@ import java.io.IOException;
 @WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/profile.jsp").forward(request, response);
 
 //        Ensure that users can only visit the /profile page if they are logged in
 
-        if (request.getSession().getAttribute("user")==null){
+        if (request.getSession().getAttribute("user") == null){
             response.sendRedirect("/login");
+            return;
         }
+        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+
+
     }
 }
