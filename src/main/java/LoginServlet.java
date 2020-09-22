@@ -10,7 +10,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 //TODO: If a user is already logged in and they visit /login, instead redirect them to their profile page
-        if (null != request.getSession().getAttribute("user")){
+        if (request.getSession().getAttribute("user") != null){
             response.sendRedirect("/profile");
             return;
         }
